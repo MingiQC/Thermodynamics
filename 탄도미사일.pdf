@@ -1,0 +1,31 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=1cm,right=1cm,top=3cm,bottom=3cm,a4paper]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+\usepackage{kotex}
+\usepackage[onehalfspacing]{setspace}
+\begin{document}
+	\begin{flushleft}
+	1개의 탄도 미사일이 요격될 확률을 p라고 하자. N개의 탄도 미사일이 발사 되었을 때, 이중 n개의 탄도미사일이 요격될 (a)확률, (b)그것의 특성함수는?  
+	\end{flushleft}
+\paragraph{}
+(a) n개의 미사일이 요격될 확률은 다음과 같다.
+$$P(n)=\frac{N!}{n!(N-n)!}p^{n}(1-p)^{(N-n)} $$
+\paragraph{}
+(b) 특성함수를 구하기 위해 먼저 probability density $\mathcal{P}(x) $를 구한다. 
+$$\mathcal{P}(x)=\sum_{n}\frac{N!}{n!(N-n)!}p^{n}(1-p)^{(N-n)}\delta(x-n)$$
+note that 
+$$\int_{x=0}^{N}\mathcal{P}(x)dx=\int_{0}^{N}\frac{N!}{0!(N-0)!}p^{0}(1-p)^{(N-0)}\delta(x-0)+\frac{N!}{1!(N-1)!}p^{1}(1-p)^{(N-1)}\delta(x-1)+\cdots$$ $$+\frac{N!}{N!(N-N)!}p^{N}(1-p)^{(N-N)}\delta(x-N)dx$$
+$$=\frac{N!}{0!(N-0)!}p^{0}(1-p)^{(N-0)}+\frac{N!}{1!(N-1)!}p^{1}(1-p)^{(N-1)}+\cdots+\frac{N!}{N!(N-N)!}p^{N}(1-p)^{(N-N)}$$
+$$=(1+(1-p))^{N}=1....\mbox{make sense!}$$이제,
+$$\mathcal{P}(x)=\frac{1}{2\pi}\int_{-\infty}^{\infty}dk e^{-ikx}Q^{N}(k)$$로부터,
+$$\int_{-\infty}^{\infty}dx e^{ikx}\mathcal{P}(x)=Q^{N}(k)..........\mbox{F.T}$$
+$$Q^{N}(k)=\sum_{n}\frac{N!}{n!(N-n)!}p^{n}(1-p)^{(N-n)}\int_{-\infty}^{\infty}dx\delta(x-n)e^{ikx}$$
+$$=\frac{N!}{n!(N-n)!}p^{n}(1-p)^{(N-n)}e^{ikn}=\frac{N!}{n!(N-n)!}(pe^{ik})^{n}(1-p)^{(N-n)}$$
+$$=(pe^{ik}+(1-p))^{N}$$
+따라서 특성함수는 다음과 같다.
+$$Q(k)=pe^{ik}+1-p=p(1+ik-k^2/2+\cdots)+1-p$$
+$$=1+ikp-\frac{k^2}{2}p+\cdots$$이때, $<x>$,$<x^2>$이 각각 $p$인 것을 알 수 있다.(수업시간에 배운 특성함수의 성질 p.14)$$<n>=N<x>,\quad <n^2>-<n>^2=N(<x^2>-<x>^2)$$
+로부터 (p.11)
+$<n>=Np, <n^2>-<n>^2=Np(1-p)$임을 알 수 있다.
+\end{document}
