@@ -1,0 +1,32 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=1cm,right=1cm,top=3cm,bottom=3cm,a4paper]{geometry}
+\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+\usepackage{kotex}
+\newcommand{\dbar}{d\hspace*{-0.08em}\bar{}\hspace*{0.1em}}
+\usepackage[onehalfspacing]{setspace}
+\begin{document}
+	\begin{flushleft}
+		$<$교과서 4-2번 솔루션보다 쉬운방법!$>$ 
+	\end{flushleft}
+\paragraph{}
+Note that $$H=U+PV=U+\frac{2}{3}\,U=\frac{5}{3}\,U\quad \mbox{Since, }U=\frac{3}{2}k_{B}T,\,PV=Nk_BT$$
+따라서, 내부에너지 $U$를 $S,V,N$에 대한 함수에서 $S,P,N$에 대한 함수로 고치는 것이 관건이다. \\교과서 (4-54) 식을 보면,
+$$S(T,P)-S_0(T_0,P_0)=Nk_B\mbox{ln}\left[\left(\frac{T}{T_0} \right)^{5/2}\left(\frac{P_0}{P} \right)   \right] $$
+이로부터 나온 일반적인 표현은 (4-55)식이다.
+$$S=Nk_B \left\lbrace s_0+\mbox{ln}\left[\left(\frac{T}{T_0} \right)^{5/2}\left(\frac{P_0}{P} \right) \right] \right\rbrace $$
+(4-55)식 으로부터,
+$$\left(\frac{T}{T_0} \right)^{5/2}=\left(\frac{P}{P_0}\right)\,\exp\left[\left(\frac{S}{Nk_B}-s_0 \right)  \right]   $$
+$$\left(\frac{T}{T_0} \right)=\left(\frac{P}{P_0}\right)^{2/5}\exp\left[\frac{2}{5}\left(\frac{S}{Nk_B}-s_0 \right)  \right]   $$
+$$\left(\frac{2U}{3Nk_B}\frac{3N_0k_B}{2U_0} \right)=\left(\frac{P}{P_0}\right)^{2/5}\exp\left[\frac{2}{5}\left(\frac{S}{Nk_B}-s_0 \right)  \right]   $$
+$$\left(\frac{U}{U_0} \right)=\left(\frac{N}{N_0} \right) \left(\frac{P}{P_0}\right)^{2/5}\exp\left[\frac{2}{5}\left(\frac{S}{Nk_B}-s_0 \right)  \right]   $$
+Finally,
+$$U=U_0\left(\frac{N}{N_0} \right) \left(\frac{P}{P_0}\right)^{2/5}\exp\left[\frac{2}{5}\left(\frac{S}{Nk_B}-s_0 \right)  \right]   $$
+맨 위의 노트에서 $H=5/3\,U$ 이라고 밝혔으므로,
+$$H(S,P,N)=\frac{5}{3}\,U_0\left(\frac{N}{N_0} \right) \left(\frac{P}{P_0}\right)^{2/5}\exp\left[\frac{2}{5}\left(\frac{S}{Nk_B}-s_0 \right)  \right]   $$
+이제 위에서 구한 이상기체의 엔탈피를 이용해서 상태방정식(P,V,T 사이의 관계식)을 구하자. \\$(\mbox{note that }dH=TdS+VdP+\mu dN)$
+$$\left|\frac{\partial H}{\partial P} \right| _{S,N}=V=\frac{5}{3}U_0\left(\frac{N}{N_0} \right)\left(\frac{P}{P_0} \right)^{2/5}\frac{2}{5}P^{-1}\exp\left[\frac{2}{5}\left(\frac{S}{Nk_B}-s_0 \right)  \right]=\frac{2}{5P}H  $$
+$$\left|\frac{\partial H}{\partial S} \right| _{P,N}=T=\frac{5}{3}U_0\left(\frac{N}{N_0} \right)\left(\frac{P}{P_0} \right)^{2/5}\exp\left[\frac{2}{5}\left(\frac{S}{Nk_B}-s_0 \right)  \right]\frac{2}{5Nk_B}=\frac{2}{5Nk_B}H  $$
+$$T=\frac{2}{5Nk_B}H=\frac{2}{5Nk_B}\frac{5PV}{2}=\frac{PV}{Nk_B}$$
+note that $$H=\frac{5}{2}Nk_BT$$
+\end{document}
