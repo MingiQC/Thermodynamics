@@ -1,0 +1,47 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[left=1cm,right=1cm,top=3cm,bottom=3cm,a4paper]{geometry}
+\usepackage{amsmath}
+\usepackage[pdftex]{graphicx}
+\usepackage{graphicx}
+\usepackage{kotex}
+\usepackage[onehalfspacing]{setspace}
+\begin{document}
+	\begin{flushleft}
+		$<$교과서 4-9번 (교과서에 오타 있음!!)$>$ 
+	\end{flushleft}
+\paragraph{}
+교과서에 제시된 상황은 $dU=TdS+BdM$이다. 그리고 각각의 비열은 다음과 같다. 
+$$C_M=\left. \frac{\partial Q}{\partial T}\right) _M=\left. T\frac{\partial S}{\partial T}\right) _M$$
+$$C_B=\left. \frac{\partial Q}{\partial T}\right) _B=\left. T\frac{\partial S}{\partial T}\right) _B$$
+문제에서 주어진 상수는 (교과서에 잘못된 부분)
+$$\alpha_M=\left.\frac{\partial M}{\partial T} \right)_B $$
+$$\chi=\left. \frac{\partial M}{\partial B}\right)_T $$
+여기서 우리에게 주어진 실험이 거시변수인 온도와 자기장($T,B$)을 쓰는 실험임을 알 수 있다. MRI와 히터를 동시에 쓰는가보다. 불을 올리거나 스위치를 돌리는 것이 엔트로피와 magnetization을 조작하는 것보다는 쉬운 일이다. \\
+고체가 받는 열을 실험에서 쓸 변수인 자기장과 온도에 대해서 표현할 수 있다. 
+$$dQ=TdS(B,T)=T\left.\frac{\partial S}{\partial B} \right)_T dB +T\left.\frac{\partial S}{\partial T} \right)_B dT$$
+$$=T\left.\frac{\partial S}{\partial B} \right)_T dB +C_B dT$$
+이때,
+$$dB(T,M)=\left. \frac{\partial B}{\partial T}\right)_M dT+\left. \frac{\partial B}{\partial M}\right)_T dM  $$
+를 이용해서 $dB$자리에 대입하면, 
+$$dQ=T\left.\frac{\partial S}{\partial B} \right)_T \left[\left. \frac{\partial B}{\partial T}\right)_M dT+\left. \frac{\partial B}{\partial M}\right)_T dM \right]  +C_B dT$$
+$$=\left[C_B+T\left.\frac{\partial S}{\partial B} \right)_T \left.\frac{\partial B}{\partial T} \right)_M \right]dT +\left[ \left.\frac{\partial S}{\partial B} \right)_T \left.\frac{\partial B}{\partial M} \right)_T\right]dM $$
+$C_M$은 magnetization이 일정할 때 고체의 열용량을 측정해놓은 것이므로 이것을 구하려면 $dM=0$으로 두어야 한다. 따라서
+$$C_M=\left. \frac{\partial Q}{\partial T}\right) _M=\left[C_B+T\left.\frac{\partial S}{\partial B} \right)_T \left.\frac{\partial B}{\partial T} \right)_M \right]$$
+$$ \begin{Bmatrix}
+dU=TdS+BdM\\dF=-SdT+BdM\\dH=TdS-MdB\\dG=-SdT-MdB
+\end{Bmatrix}\longrightarrow\begin{Bmatrix}
+\partial_S B|_M=\partial_M T|_S\\\partial_T B|_M=-\partial_M S|_T\\\partial_B T|_S=-\partial_S B|_M\\\partial_B S|_T=\partial_T M|_B
+\end{Bmatrix}$$
+위는 맥스웰 관계식들을 나타낸 것이다. 여기서 우리가 쓸 것은 gibbs free energy에서 나온  $\partial_B S|_T=\partial_T M|_B$이다.
+$$C_M=\left[C_B+T\left.\frac{\partial S}{\partial B} \right)_T \left.\frac{\partial B}{\partial T} \right)_M \right]=\left[C_B+T\left.\frac{\partial M}{\partial T} \right)_B \left.\frac{\partial B}{\partial T} \right)_M \right]$$
+$$=\left[C_B+T\alpha_M \left.\frac{\partial B}{\partial T} \right)_M \right]$$
+한편, $dM(B,T)=0$ 에서
+$$dM(B,T)=\left.\frac{\partial M}{\partial B} \right)_T dB+\left.\frac{\partial M}{\partial T} \right)_B dT=0 $$
+$$\left.\frac{\partial M}{\partial B} \right)_T dB=-\left.\frac{\partial M}{\partial T} \right)_B dT$$
+이므로,
+$$\left.\frac{\partial B}{\partial T} \right)_M=\frac{-\partial M/\partial T|_B}{\partial M/\partial B|_T}=-\frac{\alpha_M}{\chi}$$
+따라서, 
+$$C_M=C_B+T\alpha_M \left.\frac{\partial B}{\partial T} \right)_M=C_B-\frac{T{\alpha_M}^2}{\chi}$$
+또는 
+$$C_B=C_M+\frac{T{\alpha_M}^2}{\chi}$$
+\end{document}
