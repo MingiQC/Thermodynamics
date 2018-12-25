@@ -559,19 +559,206 @@
 	\end{equation*}
 	 또는
 	$$\ln Z=-\frac{1}{2}\beta\hbar\omega-\ln(1-e^{-\beta\hbar\omega})$$
-	\paragraph{7.3 }
+	(ㄱ) 
+	$$\langle E\rangle=-\frac{\partial \ln Z}{\partial \beta}=-\left(-\frac{\hbar\omega}{2}-\frac{\hbar\omega e^{-\beta\hbar\omega}}{1-e^{-\beta\hbar\omega}} \right) $$
+	$$=\hbar\omega\left(\frac{1}{2}+\frac{1}{e^{\beta\hbar\omega-1}} \right) $$
+	(ㄴ)
+	$$\langle (\Delta E)^2 \rangle=\frac{\partial^2(\ln Z)}{\partial \beta^2}=-\frac{\partial \langle E\rangle}{\partial \beta}$$
+	$$=\frac{\hbar^2\omega^2e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}$$
+	\paragraph{7.3 } $N$ 차원 양자 조화진동자의 에너지값이 다음과 같이 주어진다. 
+	$$E(n)=\left[\left(n_1+\frac{1}{2} \right) +\left(n_2+\frac{1}{2} \right) +\cdots \right]\hbar\omega,\quad n=(n_1,n_2,n_3,\cdots,n_N)  $$
+	(ㄱ) 에너지가 $E_n=(n+N/2)\hbar\omega$ 임을 보이고 이 상태의 졸들음 수(degeneracy) 를 구하여라.\\
+	(ㄴ) 온도가 $T$ 인 열원과 접촉하고 있는 $N$ 차원 조화진동자의 바른틀 분배함수를 구하여라.\\
+	(ㄷ) 질량이 $m$, 각진동수가 $\omega$ 인 1차원 고전 조화진동자의 해밀토니안은 다음과 같다.
+	$$H(p,q)=ap^2+bq^2,\quad \left(a=\frac{1}{2m},\,b=\frac{m\omega^2}{2} \right) $$
+	바른틀 분배함수를 구하고 앞에서 구한 양자 조화진동자의 바른틀 분배함수가 어떤 극한에서 고전 분배함수로 근사시킬 수 있는지를 밝혀라.
+	\subparagraph{풀이} (ㄱ) 에너지를 
+	\begin{equation*}
+		\begin{split}
+		E(n)&=\left[\left(n_1+\frac{1}{2} \right) +\left(n_2+\frac{1}{2} \right) +\cdots \right]\hbar\omega\\
+		&=\left[\sum_{i=1}^{N}n_i+\frac{N}{2}\right]\hbar\omega
+		\end{split}
+	\end{equation*}
+	와 같이 나타내고, $\sum_{i=1}^Nn_i=n$ 이라 하면, 각 양자수의 값은 $n_i=0,1,2,\cdots$ 중 어느 것이라도 될 수 있다. 따라서 $n$ 번째 상태의 졸들음 수는 $n$ 개의 입자와 $N-1$ 개의 칸막이를 배열하는 경우의 수와 같다. 고등학교 때도 이와 같은 문제를 풀어본 기억이 있을 것이다. degeneracy를 $g_n$ 이라 하면,
+	$$g_n={n+N-1\choose N-1}=\frac{(n+N-1)!}{n!(N-1)!}$$ 이므로
+	 $N$ 차원 조화진동자의 바닥상태인 $n=0$ 준위는 $g_0=1$ 로 non-degenerate 상태이며, 1차원 조화진동자인 경우에는 모든 상태가 non-degenerate 상태이다. 위의 논의에 따라서 $n$ 번째 준위의 에너지 값은 다음과 같다.
+	 $$E_n=\left(n+\frac{N}{2} \right)\hbar\omega,\quad n=0,1,2,\cdots $$
+	 (ㄴ) $N$ 차원 조화진동자의 분배함수는 
+	 \begin{equation*}
+	 	\begin{split}
+	 	Z=\sum_{n=1}^{N}g_ne^{-\beta E_n}&=\sum_{n=1}^{N}{n+N-1\choose N-1}e^{-\beta(n+N/2)\hbar\omega}\\
+	 	&=e^{-N\beta\hbar\omega/2}\sum_{n}{n+N-1\choose N-1}(e^{-\beta\hbar\omega})^n\\
+	 	&=e^{-N\beta\hbar\omega/2}\left[1+N(e^{-\beta\hbar\omega})+\frac{N(N+1)}{2!}(e^{-\beta\hbar\omega})^2+\cdots \right] 
+	 	\end{split}
+	 \end{equation*}
+	 note that 
+	 $$(1-x)^{-n}=1-n(-x)+\frac{(-n)(-n-1)}{2!}(-x)^2+\cdots=1+nx+\frac{n(n+1)}{2!}x^2+\cdots$$
+	 따라서
+	 $$Z=e^{-N\beta\hbar\omega/2}(1-e^{-\beta\hbar\omega})^{-N}=\left(\frac{1}{e^{\beta\hbar\omega/2}}\frac{1}{1-e^{-\beta\hbar\omega}} \right)^N $$
+	 $$=\left(\frac{1}{e^{\beta\hbar\omega/2}-e^{-\beta\hbar\omega/2}} \right)^N=\left(\frac{1}{2\sinh(\beta\hbar\omega/2)} \right)^N  $$
+	 (ㄷ) 1차원 고전 조화진동자의 분배함수는 다음과 같이 계산할 수 있다. $(H(p,q)=ap^2+bq^2)$
+	\begin{equation*}
+		\begin{split}
+		Z(T,V,1)&=\frac{1}{h}\int dqdp\,e^{-\beta(H(p,q))}=\frac{1}{h}\int dqdp\,e^{-\beta(ap^2+bq^2)}\\
+		&=\frac{1}{h}\int e^{-\beta a p^2}dp\int e^{-\beta b q^2}dq=\frac{1}{h}\sqrt{\frac{\pi}{a\beta}}\sqrt{\frac{\pi}{b\beta}}\\
+		&=\frac{1}{\beta\hbar\omega}
+		\end{split}
+	\end{equation*}
+	이 경우 각각의 입자는 구별 할 수 있으므로  조합할 때 Gibbs factor를 붙이지 않는다. 
+	$$Z(T,V,N)=Z(T,V,1)^N=\left(\frac{1}{\beta\hbar\omega} \right)^N $$
+	한편, $\beta$ 가 아주 작을 때 즉, $T \simeq \infty$ , 아주 고온일 때,
+	$$\frac{1}{2\sinh(\beta\hbar\omega/2)}\simeq\frac{1}{(1+\beta\hbar\omega/2)-(1-\beta\hbar\omega/2)}=\frac{1}{\beta\hbar\omega}$$
+	이므로 온도가 아주 높아질 때 양자 결과가 고전적인 결과로 근사됨을 알 수 있다. 
+	\paragraph{7.4 } 표면에 흡착된 단원자 분자의 넓이가 $L^2$ 인 표면 위에서 자유롭게 움직일 수 있다. 절대온도 $T$ 에서 흡착분자의 열용량을 구하여라.
+	\subparagraph{풀이} 표면에 흡착된 분자는 2차원에서 자유롭게 움직이는 이상기체로 간주할 수 있다. 2차원 이상기체의 에너지는 
+	$$E=\frac{1}{2m}({p_x}^2+{p_y}^2)$$ 이므로 분자 한 개의 분배함수는 다음과 같다. 
+	\begin{equation*}
+		\begin{split}
+		Z(T,V,1)&=\frac{1}{h^2}\int dq^2dp^2\, \exp\left[-\frac{\beta}{2m}({p_x}^2+{p_y}^2) \right] \\
+		&=\frac{L^2}{h^2}\int dp^2\, \exp\left[-\frac{\beta}{2m}({p_x}^2+{p_y}^2) \right]\\
+		& \mbox{ 교과서에서 했던 대로, }\\
+		&=\frac{L^2}{h^2}\left(\int dp\, \exp\left[-\frac{\beta}{2m}({p}^2) \right]\right)^2\\
+		&=\frac{L^2}{h^2}\sqrt{\frac{m\pi}{2\beta}}^2=\frac{L^2m\pi}{2\beta\hbar^2}
+		\end{split}
+	\end{equation*}
+	따라서 identical 한 분자가 $N$ 개 있을 땐,
+	$$Z(T,V,N)=\frac{1}{N!}Z(T,V,1)^N$$
+	$$\ln Z=N\ln\left(\frac{L^2m\pi}{2\beta\hbar} \right)-N\ln N+N $$
+	따라서 평균 에너지는
+	$$\langle E\rangle=-\frac{\partial \ln Z}{\partial \beta}=\frac{N}{\beta}=Nk_BT$$
+	이고 계의 열용량은 
+	$$\frac{\partial \langle E\rangle}{\partial T}=Nk_B$$
+	\paragraph{7.5 } 단원자 이상기체가 온도가 $T$ 인 열원과 열적 평형상태를 이루고 있다. \\
+	(ㄱ) 이상기체 분자의 속력을 $v$ 라고 할 때 $\langle 1/v \rangle$ 를 구하고 $1/\langle v\rangle$ 와 비교하여라.\\
+	(ㄴ) 에너지가 $\epsilon\sim\epsilon+d\epsilon$ 사이에 있는 분자의 평균 수를 구하여라.
+	\subparagraph{풀이} Maxwell 속력분포
+	$$F(v)dv=4\pi v^2\left(\frac{m}{2\pi k_B T} \right)^{3/2}dv $$
+	(ㄱ) 
+	\begin{equation*}
+		\begin{split}
+		\left\langle \frac{1}{v} \right\rangle =\int_{0}^{\infty} \frac{1}{v}F(v)dv&=4\pi\left(\frac{m}{2\pi k_BT} \right)^{3/2} \int_{0}^{\infty} v\,e^{-\frac{mv^2}{2k_BT}}dv\\
+		&=4\pi\left(\frac{m}{2\pi k_BT} \right)^{3/2}\frac{2k_BT}{2m}=\left(\frac{2m}{\pi k_B T} \right)^{1/2} 
+		\end{split}
+	\end{equation*}
+	이며
+	\begin{equation*}
+		\begin{split}
+		\langle v\rangle=\int_{0}^{\infty}vF(v)dv&=4\pi\left(\frac{m}{2\pi k_BT} \right)^{3/2}\int_{0}^{\infty}v^3e^{-\frac{mv^2}{2k_BT}}dv \\
+		&=4\pi\left(\frac{m}{2\pi k_BT} \right)^{3/2}\frac{1}{2}\left(\frac{2k_BT}{m} \right)^2 \\
+		\therefore \frac{1}{\langle v\rangle}&=\left(\frac{\pi m}{8k_BT} \right)^{1/2} 
+		\end{split}
+	\end{equation*}
+	으로 두 결과가 다르다.\\
+	(ㄴ) 
+	$$\epsilon=\frac{1}{2}mv^2,\quad dv=\left(\frac{1}{2m\epsilon} \right)^{1/2}d\epsilon $$ 에서 에너지가 $\epsilon\sim\epsilon+\epsilon$ 사이에 있는 확률분포를 다음과 같이 구할 수 있다.
+	\begin{equation*}
+		\begin{split}
+		F(\epsilon)d\epsilon&=4\pi\left(\frac{m}{2\pi k_BT} \right)^{3/2}\frac{2\epsilon}{m}\left(\frac{1}{2m\epsilon} \right)^{1/2}e^{-\frac{\epsilon}{k_BT}}d\epsilon  \\
+		&=\frac{2}{\sqrt{\pi}}\left(\frac{1}{k_BT} \right)^{3/2}\sqrt{\epsilon}e^{-\frac{\epsilon}{k_BT}}d\epsilon 
+		\end{split}
+	\end{equation*}
+	한편 이상기체 상태방정식에서 총 입자 수는 
+	$$N=\frac{PV}{k_BT}=\frac{2E}{3k_BT}$$
+	이므로 평균 입자 수는 다음과 같다. 
+	\begin{equation*}
+		\begin{split}
+		\langle N\rangle=\left\langle \frac{2E}{3k_BT}\right\rangle&=\frac{2N\langle\epsilon\rangle}{3k_BT}\\
+		&=\frac{2N}{3k_BT}\int_{0}^{\infty}\epsilon F(\epsilon) d\epsilon\\
+		&=\frac{2N}{3k_BT}\frac{2}{\sqrt{\pi}}\left(\frac{1}{k_BT} \right) ^{3/2}\int_{0}^{\infty}\epsilon^{3/2}e^{-\frac{\epsilon}{k_BT}}d\epsilon\\
+		&=\frac{2N}{3k_BT}\frac{2}{\sqrt{\pi}}\left(\frac{1}{k_BT} \right) ^{3/2}\frac{3\sqrt{\pi}}{4}(k_BT)^{5/2}=N
+		\end{split}
+	\end{equation*}
+	\paragraph{7.6 } (ㄱ) 어떤 분자의 경우에 전자의 에너지 준위가 $\epsilon_0=0,\,\epsilon_1=\epsilon$ 등 두 개의 준위로 주어진다. 에너지 간격이 $\epsilon=\epsilon_1-\epsilon_0\ll k_BT$ 일 때, 전자에 의한 열용량이 다음과 같음을 보여라.
+	$$C_{el}=\omega Nk_Be^{\epsilon/k_BT}\left(\frac{\epsilon/k_BT}{e^{\epsilon/k_BT}+\omega} \right)^2 $$
+	단 $\omega=\omega_1/\omega_0$ 로, $\omega_0,\,\omega_1$ 은 각 에너지 준위의 졸들음 수(degeneracy)이다.\\ 
+	(ㄴ) 전자의 열용량이 저온과 고온 극한에서 어떻게 변화하는가를 설명하고,
+	$$\frac{\epsilon}{k_BT}=\ln\omega+\ln\left(\frac{\epsilon/k_BT+2}{\epsilon/k_BT-2} \right)$$
+	 일 때, 열용량이 최댓값을 가짐을 보여라.\\
+	 (ㄷ) 만약 전자의 에너지 준위가 졸들음 없이 $0,\,\epsilon,\,2\epsilon$ 등 3개의 준위로 주어질 때, 전자의 열용량을 구하여라.
+	\subparagraph{풀이} (ㄱ)degeneracy를 $g_n$ 이라 하면, 계의 분배함수는 다음과 같다.
+	\begin{equation*}
+		\begin{split}
+		Z=\sum_{n}g_ne^{-\beta E_n}&=\omega_0e^{-\beta\epsilon_0}+\omega_1e^{-\beta\epsilon_1}\\
+		&=\omega_0e^{-\beta\epsilon_0}(1+(\omega_1/\omega_0)e^{-\beta(\epsilon_1-\epsilon_0)})\\
+		&=\omega_0e^{-\beta\epsilon_0}(1+\omega e^{-\beta\epsilon})
+		\end{split}
+	\end{equation*} 
+	또는
+	$$\ln Z=\ln \omega_0-\beta\epsilon_0+\ln(1+\omega e^{-\beta\epsilon})$$
+	따라서 전자 1개의 평균 에너지는 
+	$$\langle E\rangle=-\frac{\partial (\ln Z)}{\partial \beta}=-\left(-\epsilon_0+\frac{-\omega \epsilon e^{-\beta\epsilon}}{1+\omega e^{-\beta\epsilon}} \right) $$
+	$$=\epsilon_0+\frac{\epsilon\omega}{e^{\beta\epsilon}+\omega}$$
+	즉 전자 $N$ 개가 있을 때 평균 에너지는 
+	$$\langle U\rangle =N\langle E\rangle=N\left(\epsilon_0+\frac{\epsilon\omega}{e^{\beta\epsilon}+\omega} \right) $$
+	이다. 열용량은 에너지를 온도에 대해서 미분하면 된다. ($\beta=1/(k_BT)$)
+	$$C=\frac{\partial \langle U\rangle}{\partial T}=\frac{\partial \langle U\rangle}{\partial \beta}\frac{\partial\beta}{\partial T}=-N\left(\frac{\epsilon^2\omega e^{\beta\epsilon}}{(e^{\beta\epsilon}+\omega)^2} \right)\left(-\frac{1}{k_BT^2} \right)  $$
+	$$\therefore C_{el}=\omega Nk_Be^{\epsilon/k_BT}\left(\frac{\epsilon/k_BT}{e^{\epsilon/k_BT}+\omega} \right)^2$$
+	(ㄴ) 고온 극한에서는 $\beta\epsilon\ll1$ 이므로 
+	$$C\sim\omega Nk_B\left(\frac{\beta}{1+\omega} \right)^2 $$
+	로 0에 접근하고 저온 극한에서는 $\beta \epsilon\gg 1$ 이므로,
+	$$C\sim\omega Nk_B\beta^2e^{\beta\epsilon}$$
+	으로 역시 0에 접근한다. 따라서 유한한 온도에서 열용량이 최댓값을 갖게 될 것이다. 최댓값을 가질 땐 온도로 미분하였을 때 0의 값을 갖게 될 것이다. $\beta\epsilon=x$ 로 다시 쓰면,
+	$$C=\omega Nk_B e^{x}\left(\frac{x}{e^x+\omega} \right)^2 $$ 
+	$x$ 역시 온도에 대한 함수 이므로 최댓값을 가질 때 $x$ 에 대해 미분했을 때도 똑같이 0의 값을 갖는다.
+	$$\partial_x C(x)=\omega Nk_B\left(e^x\left( \frac{x}{e^x+\omega}\right)^2+e^x\left(\frac{2x}{(e^x+\omega)^2}-\frac{2x^2e^x}{(e^x+\omega)^3} \right)   \right) $$
+	즉, 최댓값을 가질 때, 괄호 안은 0이 된다. 
+	$$\frac{x^2}{(e^x+\omega)^2}+\frac{2x}{(e^x+\omega)^2}-\frac{2x^2e^x}{(e^x+\omega)^3}=0$$
+	정리하면,
+	$$(x+2)(e^x+\omega)=2xe^x,\quad x=\ln \omega+\ln\left(\frac{x+2}{x-2} \right) $$
+	또는,
+	$$\epsilon/k_BT=\ln \omega+\ln\left(\frac{\epsilon/k_BT+2}{\epsilon/k_BT-2} \right) $$
+	(ㄷ) 이 경우 분배함수는 다음과 같이 주어진다. 
+	$$Z=e^{-\beta\cdot0}+e^{-\beta\cdot1\epsilon}+e^{-\beta\cdot2\epsilon}=1+e^{-\beta\epsilon}+e^{-2\beta\epsilon}$$
+	$$\ln Z=\ln (1+e^{-\beta\epsilon}+e^{-2\beta\epsilon})$$
+	입자 한개의 평균 에너지는
+	$$\langle E \rangle =-\frac{\partial \ln Z}{\partial \beta}=-\frac{-\epsilon e^{-\beta\epsilon}-2\epsilon e^{-2\beta\epsilon}}{1+e^{-\beta\epsilon}+e^{-2\beta\epsilon}}$$
+	$$=\epsilon\frac{e^{-\beta\epsilon}+2e^{-2\beta\epsilon}}{1+e^{-\beta\epsilon}+e^{-2\beta\epsilon}}=\epsilon\left(\frac{1+2e^{-\beta\epsilon}}{1+e^{\beta\epsilon}+e^{-\beta\epsilon}} \right) $$
+	따라서 입자가 $N$ 개 있을 땐
+	$$\langle U\rangle =N\langle E\rangle =N\epsilon\left(\frac{1+2e^{-\beta\epsilon}}{1+e^{\beta\epsilon}+e^{-\beta\epsilon}} \right)$$
+	열용량은 에너지를 온도에 대해 미분하면 나온다.
+	$$C=\frac{\partial \langle U\rangle }{\partial T}=\frac{\partial \langle U\rangle }{\partial \beta}\frac{\partial \beta}{\partial T}=\frac{N\epsilon}{k_BT^2}\left(\frac{2\epsilon e^{-\beta\epsilon}}{1+e^{\beta\epsilon}+e^{-\beta\epsilon}} +\frac{\epsilon(1+2e^{-\beta\epsilon})(e^{\beta}-e^{-\beta})}{(1+e^{\beta\epsilon}+e^{-\beta\epsilon})^2} \right) $$
+		$$=\frac{2N\epsilon^2}{k_BT^2}\frac{(2+\cosh(\beta\epsilon))}{(1+2\cosh(\beta\epsilon))^2}$$
+	$$=\frac{2N\epsilon^2}{k_BT^2}\frac{(2+\cosh(\epsilon/k_BT))}{(1+2\cosh(\epsilon/k_BT))^2}$$
+	\paragraph{7.7 } 길이가 $a$ 인 $N$ 개의 막대꼴 분자가 쇠사슬과 비슷한 모양으로 연이어 이어져 있다. 이때 이웃한 두 분자의 상태는 완전히 겹쳐서 두 분자가 길이 $a$ 가 되거나 완전히 펴져서 길이가 $2a$ 가 되는 두 가지 상태만 가능하다고 하자. 이웃하는 두 분자의 겹친 상태에서의 상호작용 에너지는 $\epsilon\, (\epsilon>0)$ 이고 펴졌을 때는 0이라 하고 이웃하지 않는 분자 사이에는 상호작용이 없다고 가정하자. 온도가 $T$ 일 때 이 분자들의 평균 길이는 얼마인가? (Hint: 제일 짧을 때의 길이는 $a$ 이고 에너지는 $(N-1)\epsilon$ 이다.)
+	\subparagraph{풀이}분자들의 분포 상태를 표로 나타내면 다음과 같다. 
+	\begin{table}[h]
+		\caption{분자들의 분포 상태}
+		\begin{center}
+			\begin{tabular}{|cccc|}\hline
+				energy&전체 길이& 방법 수& 모양\\ \hline
+				$0$&$Na$&$1$&$---\cdots---$\\ \hline
+				$\epsilon$&$(N-1)a$&${N-1\choose1}$&$=---\cdots--$ \\ \hline
+				$\vdots$&$\vdots$&$\vdots$&$\vdots$ \\ \hline
+				$(N-1)\epsilon$&$a$&$1$&$===\cdots==$ \\ \hline
+			\end{tabular}
+		\end{center}
+	\end{table}\\
+	따라서 계의 분배함수는
+	\begin{equation*}
+		\begin{split}
+		Z=\sum_{n=0}^{N-1}g_ne^{-\beta E_n}&=\sum_{n=0}^{N-1}{N-1\choose n}e^{-\beta n\epsilon}\\
+		&=\left(1+e^{-\beta\epsilon} \right)^{(N-1)} 
+		\end{split}
+	\end{equation*}
+	길이의 평균은 다음과 같다.
+	\begin{equation*}
+		\begin{split}
+		\langle L\rangle&=\frac{1}{Z}\sum_{n=0}^{N-1}(N-n)a{N-1\choose n}e^{-\beta n \epsilon}\\
+		&=\frac{1}{Z}\left(\sum_{n}(Na){N-1\choose n}e^{-\beta n\epsilon}-\sum_{n}(na){N-1\choose n}e^{-\beta n \epsilon} \right) \\
+		&=\frac{1}{Z}\left(NaZ-a\sum_{n}n{N-1\choose n}e^{-\beta n \epsilon} \right) \\
+		&=\frac{1}{Z}\left(NaZ-a\left(-\frac{1}{\epsilon}\frac{\partial Z}{\partial \beta} \right)  \right) \\
+		&=Na+\frac{a}{\epsilon Z}\frac{\partial Z}{\partial \beta}\\
+		&=Na+\frac{a}{\epsilon}\frac{\partial \ln Z}{\partial \beta}=Na+\frac{a}{\epsilon}\left(\frac{-\epsilon(N-1)e^{-\beta\epsilon}}{1+e^{-\beta\epsilon}} \right) \\
+		&=a\left(N-\frac{N-1}{e^{\beta \epsilon}+1} \right) ,\quad \because\ln Z=(N-1)\ln(1+e^{-\beta\epsilon})
+		\end{split}
+	\end{equation*}
+	온도가 아주 낮을 때나 상호작용 에너지가 아주 클 때 이 분자들이 어떻게 행동할지 생각해보면 이 결과가 합리적으로 보인다. 
+	\paragraph{7.8 } 에너지-운동량 관계식이 $\epsilon=ap^x$ ($x$ 는 정수) 인 관계를 만족하는 이상기체의 상태방정식 및 내부에너지 관계식을 구하여라. 
 	\subparagraph{풀이}
-	\paragraph{7.4 }
-	\subparagraph{풀이}
-	\paragraph{7.5 }
-	\subparagraph{풀이}
-	\paragraph{7.6 }
-	\subparagraph{풀이}
-	\paragraph{7.7 }
-	\subparagraph{풀이}
-	\paragraph{7.8 }
-	\subparagraph{풀이}
-	\paragraph{7.9 }
+	\paragraph{7.9 }$N$ 개의 살창자리를 갖는 살창구조에 원자가 하나씩 존재하는 고체가 있다. 이러한 살창구조에 준안정적인 틈새 살창자리 $N'$ 개가 있다. 살창자리에서 틈새 살창자리로 원자를 이동시키는 데는 $\epsilon\,(\epsilon>0)$ 인 에너지가 필요하다. 틈새 살창자리로 이동한 원자의 수 $n$ 이 $n\ll N, n\ll N'$ 을 만족한다고 가정할 때, $\epsilon\gg k_BT$ 이면 
+	$$\frac{n^2}{(N-n)(N'-n)}=e^{-\epsilon/k_BT}$$ 또는
+	$$n^2\simeq NN'e^{-\epsilon/k_BT}$$
+	임이 됨을 보여라. 
 	\subparagraph{풀이}
 	\paragraph{7.10 }
 	\subparagraph{풀이}
