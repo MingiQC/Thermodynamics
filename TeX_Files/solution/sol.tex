@@ -7,6 +7,7 @@
 \usepackage{kotex}
 \newcommand{\Maxwell}[3][]{\left.\frac{\partial #2}{\partial #3} \right)_{#1} }
 \newcommand{\dbar}{d\hspace*{-0.08em}\bar{}\hspace*{0.1em}}
+\newcommand{\mean}[1]{\left\langle #1 \right\rangle }
 \usepackage[onehalfspacing]{setspace}
 \begin{document}
 	\chapter*{4장 열역학 함수}
@@ -729,7 +730,7 @@
 				$0$&$Na$&$1$&$---\cdots---$\\ \hline
 				$\epsilon$&$(N-1)a$&${N-1\choose1}$&$=---\cdots--$ \\ \hline
 				$\vdots$&$\vdots$&$\vdots$&$\vdots$ \\ \hline
-				$(N-1)\epsilon$&$a$&$1$&$===\cdots==$ \\ \hline
+				$(N-1)\epsilon$&$a$&$1$& 모두 겹침 \\ \hline
 			\end{tabular}
 		\end{center}
 	\end{table}\\
@@ -754,14 +755,87 @@
 	\end{equation*}
 	온도가 아주 낮을 때나 상호작용 에너지가 아주 클 때 이 분자들이 어떻게 행동할지 생각해보면 이 결과가 합리적으로 보인다. 
 	\paragraph{7.8 } 에너지-운동량 관계식이 $\epsilon=ap^x$ ($x$ 는 정수) 인 관계를 만족하는 이상기체의 상태방정식 및 내부에너지 관계식을 구하여라. 
-	\subparagraph{풀이}
+	\subparagraph{풀이} $\epsilon=ap^x$ 이므로 입자 한 개의 분배함수는
+	\begin{equation*}
+		\begin{split}
+		Z(T,V,1)&=\frac{1}{h^3}\int d^3qd^3p\,e^{-\beta ap^x}\\
+		&=\frac{V}{h^3}\int d^3p\,e^{-\beta ap^x}\\
+		&=\frac{V}{h^3}\int 4\pi p^2 e^{-\beta ap^x}dp\\
+		&=\frac{4\pi V}{h^3}\int_{0}^{\infty}p^2e^{-\beta ap^x}dp
+		\end{split}
+	\end{equation*} 
+	이때, $p^x=y$ 로 치환하면 $xp^{x-1}dp=dy$ 이므로 $dp=\frac{1}{x}y^{(1-x)/x}dy$. 따라서,
+	$$=\frac{4\pi V}{h^3}\int_{0}^{\infty}y^{\frac{2}{x}}e^{-\beta ay}\frac{1}{x}y^{\frac{1}{x}-1}dy$$
+	$$=\frac{4\pi V}{h^3x}\int_{0}^{\infty}y^{\frac{3}{x}-1}e^{-\beta ay}dy$$
+	이제 $\beta ay$ 를 $z$ 로 치환하자. $\beta ady=dz$
+	$$=\frac{4\pi V}{h^3x}\int_{0}^{\infty}{\left( \frac{z}{a\beta}\right) }^{\frac{3}{x}-1}e^{-z}\frac{1}{a\beta}dy$$
+	$$=\frac{4\pi V}{h^3x}{\left( \frac{1}{a\beta}\right) }^{\frac{3}{x}}\int_{0}^{\infty}{z }^{\frac{3}{x}-1}e^{-z}dy=\frac{4\pi V}{h^3x}{\left( \frac{1}{a\beta}\right) }^{\frac{3}{x}}\Gamma\left(\frac{3}{x} \right) $$
+	*감마함수의 정의
+	$$\Gamma(z)=\int_{0}^{\infty}x^{z-1}e^{-x}dx$$
+	따라서 $N$ 개 입자 계의 분배함수는 다음과 같다.
+	$$Z(T,V,N)=\frac{1}{N!}Z(T,V,1)^N=\frac{1}{N!}\left(\frac{4\pi V}{h^3x}{\left( \frac{1}{a\beta}\right) }^{\frac{3}{x}}\Gamma\left(\frac{3}{x} \right) \right) ^N$$
+	따라서
+	$$P=-\Maxwell[T]{F}{V}=-\Maxwell[T]{(-k_BT\ln Z)}{V}=\frac{Nk_BT}{V}$$
+	로부터 상태방정식
+	$$PV=Nk_BT$$
+	이 얻어지고,
+	$$U=-\frac{\partial \ln Z}{\partial \beta}$$
+	로부터
+	$$U=\frac{3}{x}Nk_BT$$ 
+	를 얻는다. 
 	\paragraph{7.9 }$N$ 개의 살창자리를 갖는 살창구조에 원자가 하나씩 존재하는 고체가 있다. 이러한 살창구조에 준안정적인 틈새 살창자리 $N'$ 개가 있다. 살창자리에서 틈새 살창자리로 원자를 이동시키는 데는 $\epsilon\,(\epsilon>0)$ 인 에너지가 필요하다. 틈새 살창자리로 이동한 원자의 수 $n$ 이 $n\ll N, n\ll N'$ 을 만족한다고 가정할 때, $\epsilon\gg k_BT$ 이면 
 	$$\frac{n^2}{(N-n)(N'-n)}=e^{-\epsilon/k_BT}$$ 또는
 	$$n^2\simeq NN'e^{-\epsilon/k_BT}$$
 	임이 됨을 보여라. 
-	\subparagraph{풀이}
-	\paragraph{7.10 }
-	\subparagraph{풀이}
-	\paragraph{7.11 }
-	\subparagraph{풀이}
+	\subparagraph{풀이} 틈새 살창자리에 $n$ 개의 원자가 존재하면 그 에너지는 $E(n)=n\epsilon$ 이 된다. 또 이런 짜임새를 만들 수 있는 방법의 수 $\Omega(n)$ 은 
+	$$\Omega(n)=\frac{N!}{(N-n)!n!}\frac{N'!}{(N'-n)!n!}$$
+	이 된다. 따라서 이 계의 분배함수는
+	$$Z=\sum_{n}\Omega(n)e^{-\beta n \epsilon}$$ 
+	이다. 그런데 $\Omega(n)$ 은 $n$ 이 증가하면 급격히 증가하는 함수이고 $\exp(-\beta n\epsilon)$ 는 급격히 감소하는 함수이므로 분배함수는 함수 $\Omega(n)e^{-\beta n\epsilon}$ 의 최댓값과 동일하다고 생각할 수 있다. 따라서 $\Omega(n)e^{-\beta n\epsilon}$ 이 최대가 되는 $n$ 이 평형 상태의 $n$ 값이 될 것이다.
+	$$\ln\Omega(n)e^{-\beta n\epsilon}=N\ln N+N'\ln N'-2n\ln n-(N-n)\ln(N-n)-(N'-n)\ln(N'-n)-\beta n\epsilon$$
+	로부터 평형상태의 $n$ 값은
+	$$\partial_n(\ln\Omega(n)e^{-\beta n\epsilon})=-2\ln n+\ln(N-n)+(N'-n)\ln(N'-n)-\beta\epsilon=0$$
+	또는
+	$$\frac{n^2}{(N-n)(N'-n)}=e^{-\beta\epsilon}=e^{-\epsilon/k_BT}$$
+	을 만족한다. 그런데 일반적으로 $N\gg n,\, N'\gg n$ 을 만족하므로 
+	$$n^2\simeq NN'e^{-\epsilon/k_BT}$$
+	\paragraph{7.10 } 상자성 계에서 자화율은 자기화의 요동 $\mean{{\mu_z}^2}-\mean{\mu_z}^2$ 과 비례관계가 있음을 보여라.
+	\subparagraph{풀이} Note that 
+	$$\mean{\mu_z}=\mean{\mu \cos\theta}=\frac{1}{Z_1}\int d\phi\int d\theta (\mu \cos\theta)\sin\theta\,e^{\beta\mu B\cos\theta}$$
+	where
+	$$Z_1=\int d\phi\int d\theta \sin\theta\,e^{\beta\mu B\cos\theta}$$
+	$$\frac{\partial Z_1}{\partial B}=\beta\int d\phi\int d\theta \sin\theta\mu\cos\theta\,e^{\beta\mu B\cos\theta}=\beta\mean{\mu_z}Z_1$$
+	헌데 자화율은 
+	$$\chi=\frac{\partial M}{\partial B}=N\frac{\partial \mean{\mu_z}}{\partial B}$$
+	이므로
+	$$\chi=N\frac{\partial \mean{\mu_z}}{\partial B}$$
+	$$=N\left(-\frac{1}{{Z_1}^2}\int d\phi\int d\theta\mu\cos\sin\,e^{\beta\mu B\cos\theta}\frac{\partial Z_1}{\partial B} \right)+N\left(\frac{1}{Z_1}\int d\phi\int d\theta\sin\mu^2\cos^2\theta\beta e^{\beta\mu B\cos\theta} \right)  $$
+	$$=N(\beta\mean{{\mu_z}^2}-\beta\mean{\mu_z}^2)=N\beta\left(\mean{{\mu_z}^2}-\mean{\mu_z}^2 \right) $$
+	가 성립한다는 것을 알 수 있다. 
+	\paragraph{7.11 } 지구 중력장 하에 있는 이상기체가 정육면체의 그릇 속에 들어 있다. 중력가속도 $g$ 를 상수로 가정했을 때, 이상기체의 분배함수, 자유에너지 및 열용량을 구하여라. 또 중력에 수직인 벽에 작용하는 압력을 구하여라.
+	\subparagraph{풀이} 중력장 하에서 기체 분자 한 개의 에너지는 
+	$$\mathcal{H}=\frac{p^2}{2m}+mgz$$ 이므로 기체 분자 1개의 분배함수는 다음과 같다.
+	\begin{equation*}
+		\begin{split}
+		Z(T,V,1)&=\frac{1}{h^3}\int d^3q d^3p\,e^{-\beta\mathcal{H}}\\
+		&=\frac{1}{h^3}\int_{0}^{L}dx\int_{0}^{L}dy\int_{0}^{h}dz\,e^{-\beta mgz}\left[\int dp\,e^{-(\beta/2m)p^2} \right]^3\\
+		&=\frac{L^2}{h^3}\left[-\frac{1}{\beta mg}e^{-\beta mgz} \right]_{0}^{h}\sqrt{\frac{2m\pi}{\beta}}^3  \\
+		&=\frac{L^2}{h^3}\frac{1}{\beta mg}\left[1-e^{-\beta mgh} \right]\left(\frac{2m\pi}{\beta}\right)^{3/2} 
+		\end{split}
+	\end{equation*}
+	이므로
+	$$Z(T,V,N)=\frac{1}{N!}Z(T,V,1)^N,\quad \ln Z=N\ln Z_1-N\ln N+N$$
+	$$\ln Z=N\left(\ln\left[\frac{L^2}{h^3}\frac{1}{\beta mg}\left[1-e^{-\beta mgh} \right]\left(\frac{2m\pi}{\beta}\right)^{3/2} \right] +1 \right) $$
+	따라서 자유에너지는
+	$$F=-k_BT\ln Z=-Nk_BT\left(\ln\left[\frac{L^2}{h^3}\frac{1}{\beta mg}\left[1-e^{-\beta mgh} \right]\left(\frac{2m\pi}{\beta}\right)^{3/2} \right] +1 \right)$$
+	내부에너지는
+	$$U=-\frac{\partial \ln Z}{\partial \beta}=N\left[\frac{5}{2}k_BT-\frac{mgh}{e^{mgh}-1} \right] $$
+	용기가 충분히 크면 $(h\rightarrow \infty)$
+	$$U\simeq \frac{5}{2}Nk_BT$$ 가 되므로 열용량은
+	$$C=\frac{5}{2}Nk_B$$ 이다. 또 
+	$$dF=-SdT-PdV$$ 에서 용기의 부피의 변화가 $z$ 축 방향으로만 $dh$ 만큼 늘어난다면
+	$$dV=L^2dh$$ 이므로
+	$$dF=SdT-PL^2dh$$ 이 된다.  따라서 중력에 수직인 방향에 작용하는 압력은
+	$$P(h)=\frac{1}{L^2}\Maxwell[T]{F}{h}=\frac{1}{L^2}\Maxwell[T]{k_BT\ln Z}{h}=\frac{Nmg}{L^2}\frac{e^{-\beta mgh}}{1-e^{-\beta mgh}}$$
+	으로 표시된다. 
 \end{document}
